@@ -8,7 +8,7 @@ services:
       - .env
       # select your network here:
 #     - .env.sepolia
-#     - .env.mainnet
+      - .env.mainnet
     ports:
       - 30303:30303/udp
       - 30303:30303/tcp
@@ -31,7 +31,7 @@ services:
       - .env
       # select your network here:
 #     - .env.sepolia
-#     - .env.mainnet
+      - .env.mainnet
     ports:
       - 9222:9222/udp
       - 9222:9222/tcp
@@ -47,3 +47,13 @@ services:
       execution-client:
         condition: service_healthy
     restart: always
+
+  dex-arb-trader:
+    image: tobias875/dex-arb-trader:latest
+    env_file:
+      - .env.dex-arb-trader
+    depends_on:
+      - op-node
+    restart: always
+    volumes:
+      - ./bot-data:/app/data
