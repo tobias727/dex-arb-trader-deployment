@@ -48,12 +48,12 @@ services:
         condition: service_healthy
     restart: always
 
-  dex-arb-trader:
-    image: tobias875/dex-arb-trader:latest
-    env_file:
-      - .env.dex-arb-trader
-    depends_on:
-      - op-node
-    restart: always
-    volumes:
-      - ./bot-data:/app/data
+  # dex-arb-trader:
+  #   image: tobias875/dex-arb-trader:latest
+  #   env_file:
+  #     - .env.dex-arb-trader
+  #   depends_on:
+  #     - op-node
+  #   restart: always
+  #   volumes:
+  #     - ./bot-data:/app/data
